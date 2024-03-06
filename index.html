@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WST | Activity 002</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body onload="displayTable()">
+
+  <input type="text"onkeyup="search(this.value)" autocomplete="off" placeholder="Search for subjects" class="search">
+  <table id ="display">
+    <thead>
+      <tr>
+        <th>Subject Code</th>
+        <th>Subject Description</th>
+        <th>Lecture Units</th>
+        <th>Lab Units</th>
+        <th>Pre-Requisites</th>
+        <th>Image</th>
+      </tr>
+     </thead>
+    
+     <tbody>
+     </tbody>
+  </table>
+
+  <!-- image reveal -->
+  <div id="myModal" onclick="hideImage()">
+    <div id="modalImage"></div>
+  </div>
+
+  <!-- detailed image -->
+  <div id="myModal2" onclick="hideDetail()"> 
+    <div id="detailMain">
+      <div class="detailedImage"></div>
+      <div class="subCode"></div>
+      <div class="subDesc"></div>
+      <div class="lecUnits"></div>
+      <div class="labUnits"></div>
+      <div class="preRequisites">
+        <div class="preRequisite"></div>
+      </div>
+    </div>
+  </div> 
+
+  <xml id="xmldata" style="display: none;">
+
+    <subjects>
+      <subject id="IT 301" class="subject">
+        <subDesc>Application Development and Emerging Technologies</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 206</preRequisite>
+          <preRequisite>IT 207</preRequisite>
+          <preRequisite>IT 209</preRequisite>
+        </preRequisites>
+        <imagePath>images/ApplicationDevelopmentAndEmergingTechnologies.png</imagePath>
+      </subject>
+
+      <subject id="IT 303"  class="subject">
+        <subDesc>System Analysis and Design</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 206</preRequisite>
+          <preRequisite>IT 207</preRequisite>
+          <preRequisite>IT 209</preRequisite>
+        </preRequisites>
+        <imagePath>images/SystemAnalysisandDesign.png</imagePath>  
+      </subject>
+
+      <subject id="IT 304"  class="subject">
+        <subDesc>Web Systems and Technologies 1</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 206</preRequisite>
+          <preRequisite>IT 207</preRequisite>
+          <preRequisite>IT 209</preRequisite>
+        </preRequisites>
+        <imagePath>images/WebSystemAndTechnologies1.png </imagePath>
+      </subject>
+
+      <subject id="IT 305"  class="subject">
+        <subDesc>Quantitative Methods</subDesc>
+        <lecUnits>3.0</lecUnits>
+        <labUnits>0.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 206</preRequisite>
+          <preRequisite>IT 207</preRequisite>
+          <preRequisite>IT 209</preRequisite>
+        </preRequisites>
+        <imagePath>images/QuantitativeMethods.png</imagePath>
+      </subject>
+
+      <subject id="IT 306"  class="subject">
+        <subDesc>Elective 1</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 206</preRequisite>
+          <preRequisite>IT 207</preRequisite>
+          <preRequisite>IT 209</preRequisite>
+        </preRequisites>
+        <imagePath>images/Elective1.png</imagePath>
+      </subject>
+
+      <subject id="IT 307"  class="subject">
+        <subDesc>Elective 2</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 206</preRequisite>
+          <preRequisite>IT 207</preRequisite>
+          <preRequisite>IT 209</preRequisite>
+        </preRequisites>
+        <imagePath>images/Elective2.png </imagePath>
+      </subject>
+
+      <subject id="IT 311"  class="subject">
+        <subDesc>Elective 3</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 306</preRequisite>
+          <preRequisite>IT 307</preRequisite>
+        </preRequisites>
+        <imagePath>images/Elective3.png</imagePath>
+      </subject>
+
+      <subject id="IT 312"  class="subject">
+        <subDesc>Elective 4</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 306</preRequisite>
+          <preRequisite>IT 307</preRequisite>
+        </preRequisites>
+        <imagePath>images/Elective4.png</imagePath>
+      </subject>
+
+      <subject id="IT 403"  class="subject">
+        <subDesc>Elective 5</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 311</preRequisite>
+          <preRequisite>IT 312</preRequisite>
+        </preRequisites>
+        <imagePath>images/Elective5.png</imagePath>
+      </subject>
+
+      <subject id="IT 401"  class="subject">
+        <subDesc>System Administration and Maintenance</subDesc>
+        <lecUnits>2.0</lecUnits>
+        <labUnits>1.0</labUnits>
+        <preRequisites>
+          <preRequisite>IT 210</preRequisite>
+          <preRequisite>IT 308</preRequisite>
+        </preRequisites>
+        <imagePath>images/SystemAdministrationAndMaintenance.png</imagePath>
+      </subject>
+    </subjects>
+
+  </xml>
+  
+</body>
+</html>
